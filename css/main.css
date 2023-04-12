@@ -56,6 +56,9 @@ img {
   line-height: 0;
   cursor: pointer;
 }
+.mobile-menu-btn:hover, .mobile-menu-btn:focus {
+  fill: var(--accent-color);
+}
 
 @media screen and (max-width: 1199px) {
   section {
@@ -398,7 +401,7 @@ img {
 }
 
 @media screen and (max-width: 767px) {
-  .header-menu {
+  .header {
     padding-top: 10px;
     padding-bottom: 10px;
   }
@@ -413,13 +416,14 @@ img {
     padding: 48px 40px;
   }
   .mobile-menu {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
     overflow: auto;
     opacity: 0;
+    z-index: 10;
     visibility: hidden;
     pointer-events: none;
     transition: opacity 250ms linear;
@@ -589,11 +593,10 @@ img {
   }
 }
 .hero {
-  background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../../images/hero-480.jpg);
+  background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../../images/hero-480.jpg");
   background-size: cover;
   background-color: #C4C4C4;
   background-position: center;
-  max-width: 480px;
   margin-left: auto;
   margin-right: auto;
   padding-top: 118px;
@@ -601,8 +604,8 @@ img {
 }
 
 @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-  .hero-container {
-    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../../images/hero-480@2x.jpg);
+  .hero {
+    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../../images/hero-480@2x.jpg");
   }
 }
 .main-title {
@@ -621,25 +624,24 @@ img {
 
 @media screen and (min-width: 768px) {
   .hero {
-    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../../images/hero-768.jpg);
-    max-width: 768px;
+    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../../images/hero-768.jpg");
   }
 }
 @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2), screen and (min-width: 768px) and (min-resolution: 192dpi), screen and (min-width: 768px) and (min-resolution: 2dppx) {
-  .hero-container {
-    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../../images/hero-768@2x.jpg);
+  .hero {
+    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../../images/hero-768@2x.jpg");
   }
 }
 @media screen and (min-width: 1200px) {
   .hero {
-    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../../images/hero-1200.jpg);
+    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../../images/hero-1200.jpg");
     max-width: 1600px;
     padding-top: 200px;
     padding-bottom: 200px;
   }
 }
 @media screen and (min-width: 1200px) and (min-device-pixel-ratio: 2), screen and (min-width: 1200px) and (min-resolution: 192dpi), screen and (min-width: 1200px) and (min-resolution: 2dppx) {
-  .hero-container {
+  .hero {
     background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../../images/hero-1200@2x.jpg);
   }
 }
@@ -700,6 +702,9 @@ img {
     margin-left: 30px;
     margin-bottom: 30px;
   }
+  .advantages__title {
+    text-align: left;
+  }
 }
 @media screen and (min-width: 1200px) {
   .advantages__icons {
@@ -710,9 +715,6 @@ img {
   }
   .advantages__item:not(:first-child) {
     margin-left: 30px;
-  }
-  .advantages__title {
-    text-align: left;
   }
 }
 @media screen and (max-width: 1199px) {
@@ -1103,6 +1105,7 @@ img {
 }
 
 .portfolio__items {
+  display: flex;
   border: 1px solid #EEEEEE;
   margin-bottom: 30px;
   background: #FFFFFF;
@@ -1126,9 +1129,12 @@ img {
   position: absolute;
   left: 0;
   bottom: 0;
+  display: flex;
+  align-items: center;
+  overflow-y: auto;
   width: 100%;
   height: 100%;
-  padding: 77px 24px;
+  padding: 24px;
   background-color: rgba(33, 150, 243, 0.9);
   transform: translateY(100%);
   opacity: 0;
@@ -1177,7 +1183,6 @@ img {
   }
   .portfolio__items {
     max-width: 354px;
-    max-height: 440px;
     margin-left: 30px;
     margin-bottom: 30px;
   }
@@ -1197,11 +1202,10 @@ img {
     padding: 63px 24px;
   }
 }
-@media screen and (max-width: 767px) {
-  .active {
-    color: var(--accent-color);
-  }
+.active {
+  color: var(--accent-color);
 }
+
 @media screen and (min-width: 768px) {
   .active::after {
     position: absolute;

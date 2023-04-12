@@ -1,8 +1,7 @@
-@media screen and (max-width: 767px) {
-    .active {
+.active {
         color: var(--accent-color);
     }
-}
+
 
 @media screen and (min-width: 768px) {
     .active::after {

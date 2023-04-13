@@ -75,6 +75,12 @@
     color: var(--secondary-color);
 }
 
+@media screen and (max-width: 479px) {
+    .portfolio__thumb-text {
+        font-size: 14px;
+        line-height: 1.3;
+    }
+}
 @media screen and (min-width: 768px) {
     .portfolio {
         display: flex;
@@ -91,7 +97,7 @@
     }
 
     .portfolio__thumb-info {
-        padding: 49px 24px 77px;
+        // padding: 49px 24px 77px;
     }
 }
 
@@ -106,7 +112,7 @@
     }
 
     .portfolio__thumb-info {
-        padding: 63px 24px;
+        // padding: 63px 24px;
     }
 }
 
